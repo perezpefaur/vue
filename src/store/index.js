@@ -11,9 +11,21 @@ export default createStore({
 	},
 	getters: {},
 	mutations: {
-		getCharacters(state) {
+		getCharacters(state, query) {
 			state.characters = [];
-			axios
+			if (query != ''){
+				axios
+				.get(
+					`http://gateway.marvel.com/v1/public/characters?nameStartsWith=${query}&limit=100&apikey=${public_key}`
+				)
+				.then((result) => {
+					result.data.data.results.forEach((item) => {
+						state.characters.push(item);
+					});
+				})
+				.catch((error) => {});
+			} else {
+				axios
 				.get(
 					`http://gateway.marvel.com/v1/public/characters?limit=100&apikey=${public_key}`
 				)
@@ -23,6 +35,7 @@ export default createStore({
 					});
 				})
 				.catch((error) => {});
+			}
 		},
 
 		getCharacter(state, id) {
@@ -53,8 +66,8 @@ export default createStore({
 		},
 	},
 	actions: {
-		getCharacters: (context) => {
-			context.commit("getCharacters");
+		getCharacters: (context, query) => {
+			context.commit("getCharacters", query);
 		},
 
 		getCharacter: (context, id) => {

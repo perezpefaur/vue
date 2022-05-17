@@ -2,8 +2,8 @@
 <nav>
   <router-link to="/">Home</router-link>
   <div class="separador">
-    <input type="text" class="input" placeholder="Search for a Character">
-    <input type="button" value="search" class="close-btn">
+    <input id="query" type="text" class="input" placeholder="Search for a Character">
+    <input type="button" value="search" class="close-btn" @click="search">
   </div>
 </nav>
 <div>
@@ -36,8 +36,13 @@ import { mapState } from 'vuex';
 
 export default {
     name: 'Characters',
+    data() {
+      return {
+        query: '',
+      }
+    },
     mounted() {
-        this.$store.dispatch('getCharacters')
+        this.$store.dispatch('getCharacters', this.query)
         console.log(this.characters);
     },
     computed: {
@@ -55,6 +60,11 @@ export default {
             eleInfo.classList.toggle('card__information--collapse')
             else
             setTimeout(() => eleInfo.classList.toggle('card__information--collapse'), 270);
+        },
+
+        search(event) {
+            const element = document.getElementById('query');
+            this.$store.dispatch('getCharacters', element.value)
         }
     
     }
