@@ -18,17 +18,17 @@
 import { mapState } from 'vuex';
 export default {
     name: 'Character',
-
-    mounted() {
-
-        this.getImage()
-        this.$store.dispatch('getCharacter', this.$route.params.id)
-    },
+    
     data() {
         return {
             url: "",
-            size: 'standard_large.jpg'
+            size: 'standard_fantastic.jpg'
         }
+    },
+
+    mounted() {
+        this.$store.dispatch('getCharacter', this.$route.params.id)
+        this.getImage()
     },
 
     computed: {
@@ -39,9 +39,8 @@ export default {
     },
     
     methods: {
-        getImage() {
+        getImage: function() {
             this.url = `${this.preUrl}${this.size}`
-            
         } 
     },
 
