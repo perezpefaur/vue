@@ -1,5 +1,5 @@
 import { createStore } from "vuex";
-import { secret_key, public_key } from "../marvel";
+import { public_key } from "../marvel";
 import axios from "axios";
 
 export default createStore({
@@ -25,7 +25,6 @@ export default createStore({
 		},
 
 		getCharacter(state, id) {
-			this.url = "";
 			state.character = [];
 			axios
 				.get(
@@ -34,9 +33,7 @@ export default createStore({
 				.then((result) => {
 					result.data.data.results.forEach((item) => {
 						state.character.push(item);
-						console.log(item.thumbnail.path);
-						state.url = `${item.thumbnail.path}/`;
-						console.log(state.url);
+						console.log(state.character);
 					});
 				});
 		},
