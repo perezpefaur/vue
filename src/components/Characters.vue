@@ -1,4 +1,11 @@
 <template lang="hmtl">
+<nav>
+  <router-link to="/">Home</router-link>
+  <div class="separador">
+    <input type="text" class="input" placeholder="Search for a Character">
+    <input type="button" value="search" class="close-btn">
+  </div>
+</nav>
 <div>
     <div class="container__cards">
         <div class="card" v-for="character in characters" @click="toogle"> 

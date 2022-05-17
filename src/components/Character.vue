@@ -1,4 +1,7 @@
 <template lang="html">
+<nav>
+  <router-link to="/">Home</router-link>
+</nav>
     <div>
         <div class="container" v-for="char in character">
             <img class="caracter-image" :src="char.thumbnail.path + '/standard_fantastic.' + char.thumbnail.extension " :alt="char.id"/>

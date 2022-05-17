@@ -1,7 +1,4 @@
 <template>
-  <nav>
-    <router-link to="/">Home</router-link>
-  </nav>
   <router-view/>
 </template>
 
@@ -63,6 +60,7 @@ nav {
   padding: 30px;
   text-align: center;
   background-color: #b71c1c;
+  display: flex;
 }
 
 nav a {
@@ -77,5 +75,47 @@ nav a {
 
 nav a.router-link-exact-active {
   color: #f4f1f1;
+  padding-right: 30px;
+}
+
+.input{
+  width: 400px;
+  border: 3px solid #fff;
+  background: transparent;
+  padding: 15px 30px;
+  border-radius: 50px;
+  outline: none;
+  font-size: 18px;
+  color: #fff;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #fff;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #fff;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #fff;
+}
+
+.close-btn{
+  top: 21px;
+  right: 50px;
+  cursor: pointer;
+  color: #fc3a3a;
+  background: #fff;
+  border: 0px;
+  width: 120px;
+  height: 55px;
+  border-radius: 50px;
+  outline: none;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-left: -120px;
+}
+
+.separador{
+  padding-left: 20px;
 }
 </style>
