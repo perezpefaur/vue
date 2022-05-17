@@ -1,5 +1,6 @@
 <template lang="html">
     <div>
+    <h1 class="char-name center">Featured Comics</h1>
     <div class="container__cards">
         <div class="card" v-for="comic in comics" @click="toogle"> 
             <img class="card__image" :src="comic.thumbnail.path + '/standard_fantastic.' + comic.thumbnail.extension " :alt="comic.id"/>
@@ -55,5 +56,9 @@ export default {
 </script>
 
 <style lang="css">
+.center {
+    text-align: center;
+    font-size: 30px;
+}
 
 </style>
