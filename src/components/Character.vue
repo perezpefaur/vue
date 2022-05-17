@@ -8,12 +8,14 @@
                 <p class="description-par">{{char.description}}</p>
             </div>
         </div>
+        <Comics />
     </div>
 </template>
 
 <script>
 
 import { mapState } from 'vuex';
+import Comics from './Comics.vue'
 export default {
     name: 'Character',
 
@@ -29,6 +31,9 @@ export default {
     
     methods: {
     },
+    components: {
+        Comics,
+     },
 
 }
 </script>

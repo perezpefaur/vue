@@ -6,6 +6,7 @@ export default createStore({
 	state: {
 		characters: [],
 		character: [],
+		comics: [],
 		url: "",
 	},
 	getters: {},
@@ -37,6 +38,19 @@ export default createStore({
 					});
 				});
 		},
+		getComics(state, id) {
+			state.comics = [];
+			axios
+				.get(
+					`http://gateway.marvel.com/v1/public/characters/${id}/comics?apikey=${public_key}`
+				)
+				.then((result) => {
+					result.data.data.results.forEach((item) => {
+						state.comics.push(item);
+						console.log(state.comics);
+					});
+				});
+		},
 	},
 	actions: {
 		getCharacters: (context) => {
@@ -45,6 +59,10 @@ export default createStore({
 
 		getCharacter: (context, id) => {
 			context.commit("getCharacter", id);
+		},
+
+		getComics: (context, id) => {
+			context.commit("getComics", id);
 		},
 	},
 	modules: {},
