@@ -1,7 +1,24 @@
-# Tarea {} - Grupo{}
-Description
+# Tarea {} - Grupo{6}
 
+Requisitos previos
 
-Para correr: npm run serve
+Vue:
 
-Corre en localhost/8080
+```
+npm install vue -g 
+```
+
+Dependencias:
+```
+npm install
+```
+
+Ejecutar localmente:
+```
+npm run serve
+```
+
+Ingresar a
+```
+http://localhost:8080/
+```
