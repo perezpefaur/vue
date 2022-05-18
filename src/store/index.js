@@ -16,7 +16,7 @@ export default createStore({
 			if (query != ''){
 				axios
 				.get(
-					`http://gateway.marvel.com/v1/public/characters?nameStartsWith=${query}&limit=100&apikey=${public_key}`
+					`https://gateway.marvel.com/v1/public/characters?nameStartsWith=${query}&limit=100&apikey=${public_key}`
 				)
 				.then((result) => {
 					result.data.data.results.forEach((item) => {
@@ -27,7 +27,7 @@ export default createStore({
 			} else {
 				axios
 				.get(
-					`http://gateway.marvel.com/v1/public/characters?limit=100&apikey=${public_key}`
+					`https://gateway.marvel.com/v1/public/characters?limit=100&apikey=${public_key}`
 				)
 				.then((result) => {
 					result.data.data.results.forEach((item) => {
@@ -42,7 +42,7 @@ export default createStore({
 			state.character = [];
 			axios
 				.get(
-					`http://gateway.marvel.com/v1/public/characters/${id}?apikey=${public_key}`
+					`https://gateway.marvel.com/v1/public/characters/${id}?apikey=${public_key}`
 				)
 				.then((result) => {
 					result.data.data.results.forEach((item) => {
@@ -55,7 +55,7 @@ export default createStore({
 			state.comics = [];
 			axios
 				.get(
-					`http://gateway.marvel.com/v1/public/characters/${id}/comics?apikey=${public_key}`
+					`https://gateway.marvel.com/v1/public/characters/${id}/comics?apikey=${public_key}`
 				)
 				.then((result) => {
 					result.data.data.results.forEach((item) => {
